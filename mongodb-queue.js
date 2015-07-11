@@ -75,7 +75,7 @@ Queue.prototype.add = function(payload, opts, callback) {
     }
     self.col.insert(msg,{fullResult:true}, function(err, results) {
         if (err) return callback(err)
-        callback(null, '' + results.ops[0]);
+        callback(null, '' + results.ops[0]._id);
     })
 }
 
