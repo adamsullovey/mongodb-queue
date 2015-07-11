@@ -73,9 +73,9 @@ Queue.prototype.add = function(payload, opts, callback) {
         visible  : delay ? nowPlusSecs(delay) : now(),
         payload  : payload,
     }
-    self.col.insert(msg, function(err, results) {
+    self.col.insert(msg,{fullResult:true}, function(err, results) {
         if (err) return callback(err)
-        callback(null, '' + results[0]._id)
+        callback(null, '' + results.ops[0]);
     })
 }
 
