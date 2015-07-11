@@ -106,6 +106,8 @@ Queue.prototype.get = function(opts, callback) {
         if (err) return callback(err)
         if (!msg) return callback()
 
+	msg = msg.value;
+
         // convert to an external representation
         msg = {
             // convert '_id' to an 'id' string
